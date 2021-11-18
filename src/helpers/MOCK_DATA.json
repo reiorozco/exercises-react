@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "firstName": "Carleton",
+    "lastName": "Antoszewski",
+    "email": "cantoszewski0@washington.edu",
+    "gender": "Female",
+    "ip_address": "57.233.48.44"
+  },
+  {
+    "id": 2,
+    "firstName": "Sasha",
+    "lastName": "Durrett",
+    "email": "sdurrett1@jimdo.com",
+    "gender": "Polygender",
+    "ip_address": "182.14.223.96"
+  },
+  {
+    "id": 3,
+    "firstName": "Cal",
+    "lastName": "Goodger",
+    "email": "cgoodger2@blogs.com",
+    "gender": "Genderqueer",
+    "ip_address": "47.31.6.208"
+  },
+  {
+    "id": 4,
+    "firstName": "Karlens",
+    "lastName": "Walford",
+    "email": "kwalford3@posterous.com",
+    "gender": "Agender",
+    "ip_address": "82.65.101.130"
+  },
+  {
+    "id": 5,
+    "firstName": "Carolina",
+    "lastName": "Mattea",
+    "email": "cmattea4@ca.gov",
+    "gender": "Male",
+    "ip_address": "251.57.102.221"
+  }
+]
