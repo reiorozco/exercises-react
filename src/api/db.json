@@ -1,0 +1,39 @@
+{
+  "mockData": [
+    {
+      "id": 1,
+      "firstName": "Chelsey",
+      "lastName": "Beckett",
+      "email": "cbeckett0@jiathis.com",
+      "gender": "Agender"
+    },
+    {
+      "id": 2,
+      "firstName": "Eduino",
+      "lastName": "Tomik",
+      "email": "etomik1@gov.uk",
+      "gender": "Female"
+    },
+    {
+      "id": 3,
+      "firstName": "Evangelina",
+      "lastName": "Wallbank",
+      "email": "ewallbank2@blogger.com",
+      "gender": "Bigender"
+    },
+    {
+      "id": 4,
+      "firstName": "Estel",
+      "lastName": "Christol",
+      "email": "echristol3@hc360.com",
+      "gender": "Female"
+    },
+    {
+      "id": 5,
+      "firstName": "Madeline",
+      "lastName": "Coulter",
+      "email": "mcoulter4@ed.gov",
+      "gender": "Polygender"
+    }
+  ]
+}
