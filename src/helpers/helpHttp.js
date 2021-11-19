@@ -7,7 +7,7 @@ export const helpHttp = () => {
     const controller = new AbortController();
     options.signal = controller.signal;
 
-    options.method = options.method || "GET ";
+    options.method = options.method || "GET";
     options.headers = options.headers
       ? { ...defaultHeader, ...options.headers }
       : defaultHeader;
