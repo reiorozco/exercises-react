@@ -34,7 +34,7 @@ export default function CrudApp() {
 
   return (
     <div>
-      <h2>CRUD App</h2>
+      <h2>CRUD APP</h2>
       <article className="grid-1-2">
         <CrudForm
           createData={createData}
