@@ -15,11 +15,7 @@ export default function CrudTable({ data, setDataToEdit, deleteData }) {
           </tr>
         </thead>
         <tbody>
-          {data.length === 0 ? (
-            <tr>
-              <td colSpan="4">No data</td>
-            </tr>
-          ) : (
+          {data.length > 0 ? (
             data.map((element) => (
               <CrudTableRow
                 key={element.id}
@@ -28,6 +24,10 @@ export default function CrudTable({ data, setDataToEdit, deleteData }) {
                 deleteData={deleteData}
               />
             ))
+          ) : (
+            <tr>
+              <td colSpan="4">No data</td>
+            </tr>
           )}
         </tbody>
       </table>

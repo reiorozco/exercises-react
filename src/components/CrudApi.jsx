@@ -11,7 +11,7 @@ export default function CrudApi() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // let api = helpHttp();
+  let api = helpHttp();
   let url = "http://localhost:5000/mockData";
 
   useEffect(() => {
@@ -36,13 +36,41 @@ export default function CrudApi() {
   const createData = (data) => {
     // console.log(data);
     // data.id = Date.now();
+    let options = {
+      body: data,
+      headers: { "content-type": "application/json" },
+    };
+
     data.id = database.length + 1;
-    setDatabase([...database, data]);
+
+    api.post(url, options).then((res) => {
+      console.log(res);
+      if (!res.err) {
+        setDatabase([...database, res]);
+      } else {
+        setError(res);
+      }
+    });
   };
 
   const updateData = (data) => {
-    let newData = database.map((el) => (el.id === data.id ? data : el));
-    setDatabase(newData);
+    let endpoint = `${url}/${data.id}`;
+    console.log(endpoint);
+
+    let options = {
+      body: data,
+      headers: { "content-type": "application/json" },
+    };
+
+    api.put(endpoint, options).then((res) => {
+      console.log(res);
+      if (!res.err) {
+        let newData = database.map((el) => (el.id === data.id ? data : el));
+        setDatabase(newData);
+      } else {
+        setError(res);
+      }
+    });
   };
 
   const deleteData = (id) => {
@@ -51,8 +79,20 @@ export default function CrudApi() {
     );
 
     if (isDelete) {
-      let newData = database.filter((el) => el.id !== id);
-      setDatabase(newData);
+      let endpoint = `${url}/${id}`;
+      let options = {
+        headers: { "content-type": "application/json" },
+      };
+
+      api.del(endpoint, options).then((res) => {
+        console.log(res);
+        if (!res.err) {
+          let newData = database.filter((el) => el.id !== id);
+          setDatabase(newData);
+        } else {
+          setError(res);
+        }
+      });
     } else {
       return;
     }
