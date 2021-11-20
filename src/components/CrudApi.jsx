@@ -2,24 +2,36 @@ import React, { useState, useEffect } from "react";
 import { helpHttp } from "../helpers/helpHttp";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
+import Loader from "./Loader";
+import Message from "./Message";
 
 export default function CrudApi() {
-  const [database, setDatabase] = useState([]);
+  const [database, setDatabase] = useState(null);
   const [dataToEdit, setDataToEdit] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  let api = helpHttp();
+  // let api = helpHttp();
   let url = "http://localhost:5000/mockData";
 
   useEffect(() => {
-    api.get(url).then((res) => {
-      // console.log(res);
-      if (!res.err) {
-        setDatabase(res);
-      } else {
-        setDatabase(null);
-      }
-    });
-  }, []);
+    setLoading(true);
+
+    helpHttp()
+      .get(url)
+      .then((res) => {
+        // console.log(res);
+        if (!res.err) {
+          setDatabase(res);
+          setError(null);
+        } else {
+          setDatabase(null);
+          setError(res);
+        }
+
+        setLoading(false);
+      });
+  }, [url]);
 
   const createData = (data) => {
     // console.log(data);
@@ -56,11 +68,20 @@ export default function CrudApi() {
           dataToEdit={dataToEdit}
           setDataToEdit={setDataToEdit}
         />
-        <CrudTable
-          data={database}
-          setDataToEdit={setDataToEdit}
-          deleteData={deleteData}
-        />
+        {loading && <Loader />}
+        {error && (
+          <Message
+            message={`Error ${error.status}: ${error.statusText}`}
+            bgColor="#dc3545"
+          />
+        )}
+        {database && (
+          <CrudTable
+            data={database}
+            setDataToEdit={setDataToEdit}
+            deleteData={deleteData}
+          />
+        )}
       </article>
     </div>
   );
