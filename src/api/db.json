@@ -34,6 +34,12 @@
       "lastName": "Coulter",
       "email": "mcoulter4@ed.gov",
       "gender": "Polygender"
+    },
+    {
+      "id": 6,
+      "firstName": "Fabio",
+      "lastName": "Orozco",
+      "email": "rfoc15@gmail.com"
     }
   ]
 }
